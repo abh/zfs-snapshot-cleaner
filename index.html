@@ -43,15 +43,14 @@
     </div>
 
     <h1><a href="https://github.com/abh/zfs-snapshot-cleaner">zfs-snapshot-cleaner</a>
-      <span class="small">by <a href="https://github.com/abh">abh</a></span></h1>
+      <span class="small">by <a href="https://github.com/abh">Ask Bjørn Hansen</a></span></h1>
 
     <div class="description">
-      ZFS Snapshot Cleanup Script
+      ZFS Snapshot Cleanup
     </div>
 
     
       <p>zfs-snapshot-cleaner purges old ZFS snapshots in an intelligent (and careful) manner.</p>
-
       <h2>Features</h2>
 
       <ul>
@@ -78,12 +77,12 @@
         The Perl modules are most easily installed with `cpanm`.
       </p>
 
-      <code>
-        mkdir -p ~/bin<br>
-        curl --compressed -L -o ~/bin/cpanm http://xrl.us/cpanm <br>
-        chmod a+x ~/bin/cpanm<br>
-        ~/bin/cpanm DateTime IPC::Cmd<br>
-      </code>
+      <pre>
+        mkdir -p ~/bin
+        curl --compressed -L -o ~/bin/cpanm http://xrl.us/cpanm
+        chmod a+x ~/bin/cpanm
+        ~/bin/cpanm DateTime IPC::Cmd
+      </pre>
 
       <h2>Usage</h2>
 
@@ -93,32 +92,33 @@
         destroy commands. Use that while testing.
       </p>  
 
-      <code>
+      <pre>
        ./zfs-snapshot-cleaner -n [file-system] [file-system]
-      </code>
+      </pre>
 
       <h2>License</h2>
-      <pre>
-Copyright (C) 2011 Ask Bjørn Hansen, Develooper LLC
+      <p>
+          Copyright (C) 2011 Ask Bjørn Hansen, Develooper LLC
+      </p>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
+      <p>Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
 the Software without restriction, including without limitation the rights to
 use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
 of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
+so, subject to the following conditions:</p>
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+    <p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-</pre>
+</p>
 
     
       <h2>Authors</h2>
