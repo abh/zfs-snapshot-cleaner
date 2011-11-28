@@ -51,32 +51,81 @@
 
     
       <p>zfs-snapshot-cleaner purges old ZFS snapshots in an intelligent (and careful) manner.</p>
-    
 
-    
+      <h2>Features</h2>
+
+      <ul>
+        <li>Doesn't rely on the backup running on certain days (first
+        of the month, sunday, ...) to keep the right number of
+        backups</li>
+
+        <li>Independently calculates the number of
+        hourly/daily/weekly/monthly/yearly snapshots to keep.</li>
+
+        <li>Handles various date formats.</li>
+
+        <li>Make a snapshot permanent by adding a text description
+        after the date (TODO: test this)</li>
+
+      </ul>
+
       <h2>Dependencies</h2>
-      <p>Perl and the DateTime and IPC::Cmd modules.  Tested on FreeBSD.</p>
-    
+      <p>Perl and the DateTime and IPC::Cmd modules.  Tested on FreeBSD, but 
+        should also work on Solaris, SmartOS, OpenIndiana etc.
+      </p>
 
-    
-      <h2>Install</h2>
-      <p>git clone</p>
-    
+      <p>
+        The Perl modules are most easily installed with `cpanm`.
+      </p>
 
-    
+      <code>
+        mkdir -p ~/bin
+        curl --compressed -L -o ~/bin/cpanm http://xrl.us/cpanm 
+        chmod a+x ~/bin/cpanm
+        ~/bin/cpanm DateTime IPC::Cmd
+      </code>
+
+      <h2>Usage</h2>
+
+      <p>
+        For now look in the script for the options, the most important
+        one is "-n" that makes the script not actually execute the zfs
+        destroy commands. Use that while testing.
+      </p>  
+
+      <code>
+       ./zfs-snapshot-cleaner -n [file-system] [file-system]
+      </code>
+
       <h2>License</h2>
-      <p>MIT license</p>
-    
+      <pre>
+Copyright (C) 2011 Ask Bjørn Hansen, Develooper LLC
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</pre>
 
     
       <h2>Authors</h2>
-      <p>Ask Bjørn Hansen (ask@develooper.com)<br/>      </p>
-    
-
+      <p>Ask Bjørn Hansen (ask@develooper.com)<br/>      </p>
     
       <h2>Contact</h2>
-      <p>Ask Bjørn Hansen (ask@develooper.com)<br/>      </p>
-    
+      <p>Ask Bjørn Hansen (ask@develooper.com)<br/>      </p>
 
     <h2>Download</h2>
     <p>
