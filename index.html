@@ -123,7 +123,49 @@ SOFTWARE.
     
       <h2>Authors</h2>
       <p>Ask Bjørn Hansen (ask@develooper.com)<br/>      </p>
-    
+
+      <h2>Other similar programs</h2>
+
+      <p>
+        Unsurprisingly there are about a gazillion other similar
+        programs to this.  I chose to write another because the ones I
+        found were either "too integrated" (as in wanting to also
+        manage doing the snapshots, I make snapshots from my backup
+        script) and/or too simple and written in bash so too error
+        prone (for me) to extend.  You might like them better though!
+      </p>  
+        
+        <p>The closest in spirit and functionality
+        is <a href="https://github.com/knu/zfs-snapshot-clean">zfs-snapshot-clean</a>. If
+        date parsing and handling wasn't such a pain in bash I'd have
+        extended this script to be more flexible with regards to the
+        particular day and date snapshots have to be made instead of
+        writing a new program.
+        </p>
+
+        <p><a href="https://github.com/graudeejs/zfSnap">zfSnap</a>
+        prefers to do the snapshots, too. Has a clever (too clever?)
+        option of putting the longevity of each snapshot into the
+        snapshot name.
+        </p>
+
+        <p>There's also <a href="http://github.com/marius/zsnap">zsnap</a>
+        (formerly zfs-snapshot-mgmt). It's supposed to run regularly
+        in cron and have a yaml configuration file for when to make
+        snapshots (and purge them, I think). Last update as of this
+        writing was a change of maintainer a few year ago.</p>
+
+        <p>
+          Ralf
+          S. Engelschall <a href="http://people.freebsd.org/~rse/snapshot/">made
+          snapshot tools</a> that work with both UFS and ZFS
+          filesystems on FreeBSD.  That seems to be the main
+          feature. Again it really wants to also make the snapshots, seems best
+          for snapshotting locally used file systems (vs backups of other computers)
+          and is implemented as a sh script.
+        </p>
+
+
       <h2>Contact</h2>
       <p>Ask Bjørn Hansen (ask@develooper.com)<br/>      </p>
 
