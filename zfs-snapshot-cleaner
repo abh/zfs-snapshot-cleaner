@@ -175,8 +175,6 @@ sub get_snapshots {
         # From Date::Parser
         if ($date =~ m/(\d{4})([-:_]?)(\d\d?)\2(\d\d?)(?:[-Tt_ ](\d\d?)(?:([:-]?)(\d\d?)(?:\6(\d\d?)(?:[.,](\d+))?)?)?)?$/) {
             my ($year,$month,$day,$hh,$mm,$ss,$frac) = ($1,$3,$4,$5,$7,$8,$9);
-            print join "-", map { $_ || 'undef' } ($year,$month,$day,$hh,$mm,$ss,$frac);
-            print "\n";
             $date = DateTime->new( year => $year,
                                    month => $month,
                                    day => $day,
