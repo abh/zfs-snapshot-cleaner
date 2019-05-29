@@ -134,7 +134,7 @@ sub get_snapshots {
     my $fs = shift;
 
     my( $success, $error_message, $full_buf, $stdout_buf, $stderr_buf ) =
-        run( command => [qw(zfs list -t snapshot -H -r), $fs], verbose => 0 );
+        run( command => [qw(zfs list -t snapshot -H -d 1), $fs], verbose => 0 );
 
     if (@$stderr_buf) {
         die "zfs list returned:\n", join "\n", @$stderr_buf, "";
