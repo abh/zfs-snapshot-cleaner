@@ -44,6 +44,8 @@ GetOptions(
 
 	   'n!'	=> \(my $opt_noexecute = 0),
 
+           'recurse|r' => \(my $opt_recurse = 0),
+
            'debug!'  => \(my $debug),
            'verbose+' => \(my $verbose = -t STDIN ? 1 : 0),
 );
@@ -55,6 +57,10 @@ sub pdebug { print join(" ", @_), "\n" if $debug }
 sub plog   { print join(" ", @_), "\n" if $verbose || $debug }
 
 # if verbose, show the keep schedule
+
+if ($opt_recurse) {
+    @fs = (map get_subdatasets($_), @fs)
+}
 
 for my $fs (@fs) {
     plog "Trimming $fs";
@@ -128,6 +134,19 @@ for my $fs (@fs) {
 
     plog("Snapshots purged: $purged") if $purged;
 
+}
+
+sub get_subdatasets {
+    my $fs = shift;
+    no warnings qw(qw);
+    my( $success, $error_message, $full_buf, $stdout_buf, $stderr_buf ) =
+        run( command => [qw(zfs list -r -o name -t volume,filesystem -H), $fs], verbose => 0 );
+
+    if (@$stderr_buf) {
+        die "zfs list returned:\n", join "\n", @$stderr_buf, "";
+    }
+    my @zfs_lines = map { split /\n/ } join "", @$stdout_buf;
+    return @zfs_lines;
 }
 
 sub get_snapshots {
